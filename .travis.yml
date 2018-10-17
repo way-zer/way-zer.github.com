@@ -1,0 +1,19 @@
+language: node_js 
+node_js: stable 
+# S: Build Lifecycle 
+install: 
+- yarn install
+#before_script: 
+# - npm install -g gulp 
+script: 
+- yarn export
+deploy:
+  provider: pages
+  local-dir: out
+  skip-cleanup: true
+  github-token: $TOKEN  
+  keep-history: true
+  committer-from-gh: true
+  target-branch: master
+  on:
+    branch: nextein
